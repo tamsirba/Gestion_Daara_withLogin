@@ -1,0 +1,38 @@
+le 
+function ValidationLogin (values){
+     let error = {}
+     const email_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}$/
+     const password_pattern = /^(?=.*[0-9])(?=. *[!@#$ %^&*])[a-zA-Z0-9!@#$ %^&*]{7,15}$/
+
+     if (values.nom === " ") {
+        error.nom = "le Nom ne doit pas etre vide"
+     }
+
+     else { 
+        error.nom = ""
+    }  
+     if (values.email === "") {
+        error.email = "Nom ne doit pas etre vide"
+     }
+
+     else if(!email_pattern.test(values.email)){
+        error.email = "Votre Email ne marche pas!"
+
+    }
+    else { 
+        error.email = ""
+    }
+        
+    if (values.password==="") {
+        error.password = "Password ne doit pas etre vide"
+        
+     }
+     else if (!password_pattern.test(values.password)){
+        error.email = "Votre password ne marche pas!"
+    }
+    else { 
+        error.password = ""
+     }
+     return error;
+}
+export default ValidationLogin;
